@@ -5,7 +5,7 @@ const path = require('node:path');
 //readfile 함수 만들기
 function readPath(readUrl,res) {
   const filePath = path.join(__dirname,readUrl);
-  const fileData = fs.readFileSync(filePath,'utf-8',{});
+  const fileData = fs.readFileSync(filePath,'utf-8');
   res.writeHead(200,{"Content-Type":"text/html;charset=utf-8"});
   res.write(fileData);
   res.end();
@@ -21,7 +21,7 @@ const server = http.createServer((req,res)=>{
   if(req.method === "GET"){
 
     //url = /
-    if(req.url ==- '/'){
+    if(req.url === '/'){
       readPath("../public/index.html",res);
     }
 
